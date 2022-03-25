@@ -1,0 +1,6 @@
+---
+- name: Prepare host to deploy k8s cluster
+  hosts: master0
+  gather_facts: no
+  roles:
+    - role: k8s_init_cluster

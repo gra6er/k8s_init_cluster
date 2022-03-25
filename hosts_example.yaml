@@ -1,0 +1,26 @@
+all:
+  children:
+    master0:
+      hosts:
+        192.168.1.1: # <db host IP or DNS>
+  
+      vars:
+        ansible_user: <sudo user>
+        ansible_password: <sudo user's password>
+        ansible_become: yes
+        ansible_become_password: <sudo user's password>
+      
+      # DNF packages to prepare host  
+        dnf_packages:
+          - python3-pip
+
+      # PIP packages to prepare host
+        pip_packages:
+          - kubernetes
+
+      # Network settings
+        # Pods network 
+        pod_network_cidr: 172.16.0.0/16
+
+        # Endpoint of control plane (master IP (DNS) or proxy)
+        control_plane_endpoint: 192.168.1.1
