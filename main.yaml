@@ -1,5 +1,5 @@
 ---
-- name: Prepare host to deploy k8s cluster
+- name: Init k8s cluster by runing master node
   hosts: master0
   gather_facts: no
   roles:
