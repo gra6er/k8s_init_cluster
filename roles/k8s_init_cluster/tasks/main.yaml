@@ -18,7 +18,11 @@
     dest: ~/tigera-operator.yaml
 
 - name: Kubeadm init cluster
-  ansible.builtin.command: kubeadm init --pod-network-cidr="{{ pod_network_cidr }}" --control-plane-endpoint="{{ control_plane_endpoint }}"
+  ansible.builtin.command: >
+  kubeadm init 
+    --pod-network-cidr="{{ pod_network_cidr }}" 
+    --control-plane-endpoint="{{ control_plane_endpoint }}" 
+    --apiserver-cert-extra-sans="{{ cert_extra_sans }}"
 
 - name: Create a directory ~/.kube if it does not exist
   ansible.builtin.file:
